@@ -16,7 +16,7 @@ df = pd.read_csv("C:\Users\Rajnish\Machine Learning\Detection_Project\notebooks\
 
 df.drop("Unnamed: 0",axis = 1)
 
-json_record = list(json.loads(df.T.to_json()).values())
+json_record = list(json.loads(df.T.to_json()).values())    #converts a pandas DataFrame into a list of dictionaries, where each dictionary represents a row 
 
 #Push json data in monga db
 client[Database_Name][Collection_Name].insert_many(json_record)
